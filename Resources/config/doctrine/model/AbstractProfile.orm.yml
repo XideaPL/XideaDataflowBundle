@@ -1,0 +1,23 @@
+Xidea\Component\Dataflow\Model\AbstractProfile:
+    type: mappedSuperclass
+    inheritanceType: SINGLE_TABLE
+    discriminatorColumn:
+        name: discr
+        type: string
+        length: 64
+    discriminatorMap:
+        import: Xidea\Component\Dataflow\Model\ImportInterface
+        export: Xidea\Component\Dataflow\Model\ExportInterface
+    id:
+        id:
+            type: integer
+            generator: { strategy: AUTO }
+    fields:
+        name:
+            type: string
+            length: 255
+        context:
+            type: string
+            length: 64
+        options:
+            type: json_array

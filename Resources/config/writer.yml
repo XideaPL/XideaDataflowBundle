@@ -1,0 +1,8 @@
+parameters:
+    xidea_dataflow.writer.csv.default.class: Xidea\Component\Dataflow\Writer\CsvWriter
+  
+services:
+    xidea_dataflow.writer.csv.default:
+        class: %xidea_dataflow.writer.csv.default.class%
+        tags:
+            - { name: xidea_dataflow.writer, type: csv }

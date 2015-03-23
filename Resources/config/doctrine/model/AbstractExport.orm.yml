@@ -1,0 +1,2 @@
+Xidea\Component\Dataflow\Model\AbstractExport:
+    type: mappedSuperclass

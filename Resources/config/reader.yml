@@ -1,0 +1,8 @@
+parameters:
+    xidea_dataflow.reader.xml.default.class: Xidea\Component\Dataflow\Reader\XmlReader
+  
+services:
+    xidea_dataflow.reader.xml.default:
+        class: %xidea_dataflow.reader.xml.default.class%
+        tags:
+            - { name: xidea_dataflow.reader, type: xml }

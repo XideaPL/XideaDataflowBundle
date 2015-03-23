@@ -1,0 +1,23 @@
+parameters:
+    xidea_dataflow.exporter.default.class: Xidea\Bundle\DataflowBundle\Export\Exporter
+    xidea_dataflow.export.configuration.default.class: Xidea\Bundle\DataflowBundle\Configuration
+    xidea_dataflow.export.factory.default.class: Xidea\Component\Dataflow\Factory\ProfileFactory
+    xidea_dataflow.export.builder.default.class: Xidea\Component\Dataflow\Builder\ExportBuilder
+  
+services:
+    xidea_dataflow.exporter.default:
+        class: %xidea_dataflow.exporter.default.class%
+        arguments:
+            - @xidea_dataflow.export.configuration
+    xidea_dataflow.export.configuration.default:
+        class: %xidea_dataflow.export.configuration.default.class%
+        arguments:
+            - %xidea_dataflow.base_dir%
+    xidea_dataflow.export.factory.default:
+        class: %xidea_dataflow.export.factory.default.class%
+        arguments:
+            - %xidea_dataflow.export.class%
+    xidea_dataflow.export.builder.default:
+        class: %xidea_dataflow.export.builder.default.class%
+        arguments:
+            - @xidea_dataflow.export.factory
