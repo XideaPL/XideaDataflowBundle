@@ -28,7 +28,7 @@ class Configuration extends BaseConfiguration implements ConfigurationInterface
      */
     public function __construct($basePath)
     {
-        $this->basePath = $basePath.'/var';
+        $this->basePath = $basePath;
     }
     
     /**
