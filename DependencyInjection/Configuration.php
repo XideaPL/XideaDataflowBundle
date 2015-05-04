@@ -31,13 +31,12 @@ class Configuration extends AbstractConfiguration
         $rootNode
             ->children()
                 ->scalarNode('base_dir')->isRequired()->cannotBeEmpty()->end()
-                ->scalarNode('importer')->defaultValue('xidea_dataflow.importer.default')->end()
-                ->scalarNode('exporter')->defaultValue('xidea_dataflow.exporter.default')->end()
+                ->scalarNode('configuration')->defaultValue('xidea_dataflow.configuration.default')->end()
+                ->scalarNode('dataflow')->defaultValue('xidea_dataflow.dataflow.default')->end()
             ->end()
         ;
         
-        $this->addImportSection($rootNode);
-        $this->addExportSection($rootNode);
+        $this->addProfileSection($rootNode);
 
         return $treeBuilder;
     }
@@ -47,38 +46,18 @@ class Configuration extends AbstractConfiguration
         return 'XideaDataflowBundle';
     }
     
-    protected function addImportSection(ArrayNodeDefinition $node)
+    protected function addProfileSection(ArrayNodeDefinition $node)
     {
         $node
             ->children()
-                ->arrayNode('import')
+                ->arrayNode('profile')
                     ->addDefaultsIfNotSet()
                     ->children()
                         ->scalarNode('class')->isRequired()->cannotBeEmpty()->end()
-                        ->scalarNode('configuration')->isRequired()->cannotBeEmpty()->end()
-                        ->scalarNode('factory')->defaultValue('xidea_dataflow.import.factory.default')->end()
-                        ->scalarNode('builder')->defaultValue('xidea_dataflow.import.builder.default')->end()
-                        ->scalarNode('manager')->defaultValue('xidea_dataflow.import.manager.default')->end()
-                        ->scalarNode('loader')->defaultValue('xidea_dataflow.import.loader.default')->end()
-                    ->end()
-                ->end()
-            ->end()
-        ;
-    }
-    
-    protected function addExportSection(ArrayNodeDefinition $node)
-    {
-        $node
-            ->children()
-                ->arrayNode('export')
-                    ->addDefaultsIfNotSet()
-                    ->children()
-                        ->scalarNode('class')->isRequired()->cannotBeEmpty()->end()
-                        ->scalarNode('configuration')->isRequired()->cannotBeEmpty()->end()
-                        ->scalarNode('factory')->defaultValue('xidea_dataflow.export.factory.default')->end()
-                        ->scalarNode('builder')->defaultValue('xidea_dataflow.export.builder.default')->end()
-//                        ->scalarNode('manager')->defaultValue('xidea_dataflow.import.manager.default')->end()
-//                        ->scalarNode('loader')->defaultValue('xidea_dataflow.import.loader.default')->end()
+                        ->scalarNode('factory')->defaultValue('xidea_dataflow.profile.factory.default')->end()
+                        ->scalarNode('builder')->defaultValue('xidea_dataflow.profile.builder.default')->end()
+                        ->scalarNode('manager')->defaultValue('xidea_dataflow.profile.manager.default')->end()
+                        ->scalarNode('loader')->defaultValue('xidea_dataflow.profile.loader.default')->end()
                     ->end()
                 ->end()
             ->end()

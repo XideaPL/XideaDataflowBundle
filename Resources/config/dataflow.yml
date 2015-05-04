@@ -1,0 +1,13 @@
+parameters:
+    xidea_dataflow.configuration.default.class: Xidea\Bundle\DataflowBundle\Configuration
+    xidea_dataflow.dataflow.default.class: Xidea\Bundle\DataflowBundle\Dataflow
+  
+services:
+    xidea_dataflow.dataflow.default:
+        class: %xidea_dataflow.dataflow.default.class%
+        arguments:
+            - @xidea_dataflow.configuration
+    xidea_dataflow.configuration.default:
+        class: %xidea_dataflow.configuration.default.class%
+        arguments:
+            - %xidea_dataflow.base_dir%

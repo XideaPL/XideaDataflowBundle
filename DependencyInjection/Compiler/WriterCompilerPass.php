@@ -20,14 +20,14 @@ class WriterCompilerPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
     {
-        $exporter = $container->getAlias('xidea_dataflow.exporter');
+        $dataflow = $container->getAlias('xidea_dataflow.dataflow');
         
-        if (!$container->hasDefinition($exporter)) {
+        if (!$container->hasDefinition($dataflow)) {
             return;
         }
 
         $definition = $container->getDefinition(
-            $exporter
+            $dataflow
         );
 
         $taggedServices = $container->findTaggedServiceIds(

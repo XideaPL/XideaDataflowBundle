@@ -1,0 +1,21 @@
+parameters:
+    xidea_dataflow.profile.repository.default.class: Doctrine\ORM\EntityRepository
+    xidea_dataflow.profile.loader.default.class: Xidea\Bundle\DataflowBundle\Doctrine\ORM\Loader\ProfileLoader
+    xidea_dataflow.profile.manager.default.class: Xidea\Bundle\DataflowBundle\Doctrine\ORM\Manager\ProfileManager
+  
+services:
+    xidea_dataflow.profile.repository.default:
+        class: %xidea_dataflow.profile.repository.default.class%
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+            - %xidea_dataflow.profile.class%
+    xidea_dataflow.profile.loader.default:
+        class: %xidea_dataflow.profile.loader.default.class%
+        arguments:
+            - @xidea_dataflow.profile.repository.default
+    xidea_dataflow.profile.manager.default:
+        class: %xidea_dataflow.profile.manager.default.class%
+        arguments:
+            - @doctrine.orm.entity_manager
+            - @event_dispatcher

@@ -9,16 +9,16 @@
 
 namespace Xidea\Bundle\DataflowBundle\Tests\Model;
 
-use Xidea\Bundle\DataflowBundle\Tests\Fixtures\Model\Import;
+use Xidea\Bundle\DataflowBundle\Tests\Fixtures\Model\Profile;
 
 /**
  * @author Artur Pszczółka <artur.pszczolka@xidea.pl>
  */
-class ImportTest extends \PHPUnit_Framework_TestCase
+class ProfileTest extends \PHPUnit_Framework_TestCase
 {
     public function testId()
     {
-        $import = $this->createImport();
+        $import = $this->createProfile();
         $this->assertNull($import->getId());
         
         $import->setId(1);
@@ -27,10 +27,10 @@ class ImportTest extends \PHPUnit_Framework_TestCase
     
     public function testName()
     {
-        $import = $this->createImport();
+        $import = $this->createProfile();
         $this->assertNull($import->getName());
         
-        $name = 'Import 1';
+        $name = 'Profile 1';
         
         $import->setName($name);
         $this->assertEquals($name, $import->getName());
@@ -38,7 +38,7 @@ class ImportTest extends \PHPUnit_Framework_TestCase
     
     public function testContext()
     {
-        $import = $this->createImport();
+        $import = $this->createProfile();
         $this->assertNull($import->getContext());
         
         $context = 'context';
@@ -49,7 +49,7 @@ class ImportTest extends \PHPUnit_Framework_TestCase
     
     public function testOptions()
     {
-        $import = $this->createImport();
+        $import = $this->createProfile();
         $this->assertNull($import->getOptions());
         
         $options = array(
@@ -62,8 +62,8 @@ class ImportTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(2, count($import->getOptions()));
     }
     
-    protected function createImport()
+    protected function createProfile()
     {
-        return new Import();
+        return new Profile();
     }
 }

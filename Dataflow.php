@@ -7,13 +7,13 @@
  * file that was distributed with this source code.
  */
 
-namespace Xidea\Bundle\DataflowBundle\Import;
+namespace Xidea\Bundle\DataflowBundle;
 
-use Xidea\Component\Dataflow\Import\AbstractImporter;
+use Xidea\Component\Dataflow\AbstractDataflow;
 
 /**
  * @author Artur Pszczółka <a.pszczolka@xidea.pl>
  */
-class Importer extends AbstractImporter
+class Dataflow extends AbstractDataflow
 {
 }

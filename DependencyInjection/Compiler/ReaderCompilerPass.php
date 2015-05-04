@@ -20,14 +20,14 @@ class ReaderCompilerPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container)
     {
-        $importer = $container->getAlias('xidea_dataflow.importer');
+        $dataflow = $container->getAlias('xidea_dataflow.dataflow');
         
-        if (!$container->hasDefinition($importer)) {
+        if (!$container->hasDefinition($dataflow)) {
             return;
         }
 
         $definition = $container->getDefinition(
-            $importer
+            $dataflow
         );
 
         $taggedServices = $container->findTaggedServiceIds(

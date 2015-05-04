@@ -13,13 +13,13 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 use Doctrine\ORM\EntityManager;
 
-use Xidea\Component\Dataflow\Manager\ImportManagerInterface,
-    Xidea\Component\Dataflow\Model\ImportInterface;
+use Xidea\Component\Dataflow\Manager\ProfileManagerInterface,
+    Xidea\Component\Dataflow\Model\ProfileInterface;
 
 /**
  * @author Artur Pszczółka <a.pszczolka@xidea.pl>
  */
-class ImportManager implements ImportManagerInterface
+class ProfileManager implements ProfileManagerInterface
 {
     /*
      * @var EntityManager
@@ -32,7 +32,7 @@ class ImportManager implements ImportManagerInterface
     protected $eventDispatcher;
 
     /**
-     * Constructs a import manager.
+     * Constructs a profile manager.
      *
      * @param EntityManager The entity manager
      */
@@ -45,34 +45,34 @@ class ImportManager implements ImportManagerInterface
     /**
      * {@inheritdoc}
      */
-    public function save(ImportInterface $import)
+    public function save(ProfileInterface $profile)
     {
-        //$this->eventDispatcher->dispatch(ImportEvents::PRE_SAVE, new ImportEvent($import));
+        //$this->eventDispatcher->dispatch(ProfileEvents::PRE_SAVE, new ProfileEvent($profile));
         
-        $this->entityManager->persist($import);
+        $this->entityManager->persist($profile);
 
         $this->entityManager->flush();
         
-        //$this->eventDispatcher->dispatch(ImportEvents::POST_SAVE, new ImportEvent($import));
+        //$this->eventDispatcher->dispatch(ProfileEvents::POST_SAVE, new ProfileEvent($profile));
 
-        return $import->getId();
+        return $profile->getId();
     }
     
-    public function update(ImportInterface $import)
+    public function update(ProfileInterface $profile)
     {  
-        $this->entityManager->persist($import);
+        $this->entityManager->persist($profile);
 
         $this->entityManager->flush();
 
-        return $import->getId();
+        return $profile->getId();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function delete(ImportInterface $import)
+    public function delete(ProfileInterface $profile)
     {
-        $this->entityManager->remove($import);
+        $this->entityManager->remove($profile);
     }
 
 }

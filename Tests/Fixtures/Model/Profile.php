@@ -9,12 +9,12 @@
 
 namespace Xidea\Bundle\DataflowBundle\Tests\Fixtures\Model;
 
-use Xidea\Component\Dataflow\Model\AbstractImport;
+use Xidea\Component\Dataflow\Model\AbstractProfile;
 
 /**
  * @author Artur Pszczółka <a.pszczolka@xidea.pl>
  */
-class Import extends AbstractImport
+class Profile extends AbstractProfile
 {
     public function setId($id)
     {

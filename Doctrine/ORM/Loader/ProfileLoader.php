@@ -12,12 +12,12 @@ namespace Xidea\Bundle\DataflowBundle\Doctrine\ORM\Loader;
 use Doctrine\ORM\EntityRepository;
         
 
-use Xidea\Component\Dataflow\Loader\ImportLoaderInterface;
+use Xidea\Component\Dataflow\Loader\ProfileLoaderInterface;
 
 /**
  * @author Artur Pszczółka <a.pszczolka@xidea.pl>
  */
-class ImportLoader implements ImportLoaderInterface
+class ProfileLoader implements ProfileLoaderInterface
 {
     /*
      * @var EntityRepository
