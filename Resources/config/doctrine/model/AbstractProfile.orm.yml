@@ -11,10 +11,10 @@ Xidea\Component\Dataflow\Model\AbstractProfile:
         context:
             type: string
             length: 64
-        reader:
-            type: json_array
-        writer:
-            type: json_array
+#        reader:
+#            type: json_array
+#        writer:
+#            type: json_array
         options:
             type: json_array
             nullable: true
