@@ -1,5 +1,5 @@
 parameters:
-    xidea_dataflow.profile.factory.default.class: Xidea\Component\Base\Factory\ObjectFactory
+    xidea_dataflow.profile.factory.default.class: Xidea\Component\Base\Factory\ModelFactory
     xidea_dataflow.profile.builder.default.class: Xidea\Component\Dataflow\Builder\ProfileBuilder
   
 services:
