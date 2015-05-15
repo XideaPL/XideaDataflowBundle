@@ -4,5 +4,7 @@ parameters:
 services:
     xidea_dataflow.writer.csv.default:
         class: %xidea_dataflow.writer.csv.default.class%
+        arguments:
+            - @xidea_dataflow.configuration
         tags:
             - { name: xidea_dataflow.writer, type: csv }
