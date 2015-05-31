@@ -1,5 +1,6 @@
 parameters:
     xidea_dataflow.reader.xml.default.class: Xidea\Component\Dataflow\Reader\XmlReader
+    xidea_dataflow.reader.csv.default.class: Xidea\Component\Dataflow\Reader\CsvReader
   
 services:
     xidea_dataflow.reader.xml.default:
@@ -8,3 +9,9 @@ services:
             - @xidea_dataflow.configuration
         tags:
             - { name: xidea_dataflow.reader, type: xml }
+    xidea_dataflow.reader.csv.default:
+        class: %xidea_dataflow.reader.csv.default.class%
+        arguments:
+            - @xidea_dataflow.configuration
+        tags:
+            - { name: xidea_dataflow.reader, type: csv }
