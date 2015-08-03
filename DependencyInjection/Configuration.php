@@ -41,11 +41,6 @@ class Configuration extends AbstractConfiguration
         return $treeBuilder;
     }
     
-    public function getDefaultTemplateNamespace()
-    {
-        return 'XideaDataflowBundle';
-    }
-    
     protected function addProfileSection(ArrayNodeDefinition $node)
     {
         $node
